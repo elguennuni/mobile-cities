@@ -96,11 +96,11 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate location;
         if (isSinglePlace) {
             marker_bg.setColorFilter(getResources().getColor(R.color.marker_secondary));
-            MarkerOptions markerOptions = new MarkerOptions().title(ext_place.name).position(ext_place.getPosition());
+            MarkerOptions markerOptions = new MarkerOptions().title(ext_place.getName()).position(ext_place.getPosition());
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(Tools.createBitmapFromView(ActivityMaps.this, marker_view)));
             mMap.addMarker(markerOptions);
             location = CameraUpdateFactory.newLatLngZoom(ext_place.getPosition(), 12);
-            actionBar.setTitle(ext_place.name);
+            actionBar.setTitle(ext_place.getName());
         } else {
             location = CameraUpdateFactory.newLatLngZoom(new LatLng(Constant.city_lat, Constant.city_lng), 9);
             mClusterManager = new ClusterManager<>(this, mMap);
@@ -186,7 +186,7 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
                 icon.setImageResource(cur_category.icon);
             }
             marker_bg.setColorFilter(getResources().getColor(R.color.marker_primary));
-            markerOptions.title(item.name);
+            markerOptions.title(item.getName());
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(Tools.createBitmapFromView(ActivityMaps.this, marker_view)));
             if (ext_place != null && ext_place.place_id == item.place_id) {
                 markerOptions.visible(false);

@@ -237,8 +237,8 @@ public class Tools {
     public static void methodShare(Activity act, Place p) {
 
         // string to share
-        String shareBody = "View good place \'" + p.name + "\'"
-                + "\n" + "located at : " + p.address + "\n\n"
+        String shareBody = "View good place \'" + p.getName() + "\'"
+                + "\n" + "located at : " + p.getAddress() + "\n\n"
                 + "Using app : " + getPlayStoreUrl(act);
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

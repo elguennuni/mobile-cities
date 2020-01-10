@@ -6,6 +6,7 @@ import com.google.maps.android.clustering.ClusterItem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Place implements Serializable, ClusterItem {
     public int place_id;
@@ -20,6 +21,14 @@ public class Place implements Serializable, ClusterItem {
     public long last_update;
     public float distance = -1;
 
+    private String name_fr;
+    private String address_fr;
+    private String description_fr;
+
+    private String name_ar;
+    private String address_ar;
+    private String description_ar;
+
     public List<Category> categories = new ArrayList<>();
     public List<Images> images = new ArrayList<>();
 
@@ -32,4 +41,33 @@ public class Place implements Serializable, ClusterItem {
         return (address == null && phone == null && website == null && description == null);
     }
 
+
+    public String getName() {
+
+        if("fr".equals(Locale.getDefault().getLanguage()))
+            return name_fr;
+        else if("ar".equals(Locale.getDefault().getLanguage()))
+                return name_ar;
+        else return name;
+
+    }
+
+    public String getAddress() {
+
+        if("fr".equals(Locale.getDefault().getLanguage()))
+            return address_fr;
+        else if("ar".equals(Locale.getDefault().getLanguage()))
+            return address_ar;
+        else return address;
+    }
+
+    public String getDescription() {
+
+        if("fr".equals(Locale.getDefault().getLanguage()))
+            return description_fr;
+        else if("ar".equals(Locale.getDefault().getLanguage()))
+            return description_ar;
+        else return description;
+
+    }
 }

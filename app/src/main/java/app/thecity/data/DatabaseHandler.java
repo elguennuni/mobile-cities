@@ -261,12 +261,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         modelList = Tools.itemsWithDistance(context, modelList);
         for (Place p : modelList) {
             stmt.bindLong(1, p.place_id);
-            stmt.bindString(2, p.name);
+            stmt.bindString(2, p.getName());
             stmt.bindString(3, p.image);
-            stmt.bindString(4, p.address);
+            stmt.bindString(4, p.getAddress());
             stmt.bindString(5, p.phone);
             stmt.bindString(6, p.website);
-            stmt.bindString(7, p.description);
+            stmt.bindString(7, p.getDescription());
             stmt.bindDouble(8, p.lng);
             stmt.bindDouble(9, p.lat);
             stmt.bindDouble(10, p.distance);
@@ -306,12 +306,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private ContentValues getPlaceValue(Place model){
         ContentValues values = new ContentValues();
         values.put(KEY_PLACE_ID, model.place_id);
-        values.put(KEY_NAME, model.name);
+        values.put(KEY_NAME, model.getName());
         values.put(KEY_IMAGE, model.image);
-        values.put(KEY_ADDRESS, model.address);
+        values.put(KEY_ADDRESS, model.getAddress());
         values.put(KEY_PHONE, model.phone);
         values.put(KEY_WEBSITE, model.website);
-        values.put(KEY_DESCRIPTION, model.description);
+        values.put(KEY_DESCRIPTION, model.getDescription());
         values.put(KEY_LNG, model.lng);
         values.put(KEY_LAT, model.lat);
         values.put(KEY_DISTANCE, model.distance);

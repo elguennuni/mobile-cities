@@ -112,7 +112,7 @@ public class ActivityPlaceDetail extends AppCompatActivity {
         distance = place.distance;
 
         fabToggle();
-        setupToolbar(place.name);
+        setupToolbar(place.getName());
         initMap();
 
         // handle when favorite button clicked
@@ -121,14 +121,14 @@ public class ActivityPlaceDetail extends AppCompatActivity {
             public void onClick(View view) {
                 if (db.isFavoritesExist(place.place_id)) {
                     db.deleteFavorites(place.place_id);
-                    Snackbar.make(parent_view, place.name + " " + getString(R.string.remove_favorite), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(parent_view, place.getName() + " " + getString(R.string.remove_favorite), Snackbar.LENGTH_SHORT).show();
                     // analytics tracking
-                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "REMOVE", place.name);
+                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "REMOVE", place.getName());
                 } else {
                     db.addFavorites(place.place_id);
-                    Snackbar.make(parent_view, place.name + " " + getString(R.string.add_favorite), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(parent_view, place.getName() + " " + getString(R.string.add_favorite), Snackbar.LENGTH_SHORT).show();
                     // analytics tracking
-                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "ADD", place.name);
+                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "ADD", place.getName());
                 }
                 fabToggle();
             }
@@ -138,18 +138,18 @@ public class ActivityPlaceDetail extends AppCompatActivity {
         Tools.systemBarLolipop(this);
 
         // analytics tracking
-        ThisApplication.getInstance().trackScreenView("View place : " + place.name);
+        ThisApplication.getInstance().trackScreenView("View place : " + place.getName());
     }
 
 
     private void displayData(Place p) {
-        ((TextView) findViewById(R.id.address)).setText(p.address);
+        ((TextView) findViewById(R.id.address)).setText(p.getAddress());
         ((TextView) findViewById(R.id.phone)).setText(p.phone.equals("-") || p.phone.trim().equals("") ? getString(R.string.no_phone_number) : p.phone);
         ((TextView) findViewById(R.id.website)).setText(p.website.equals("-") || p.website.trim().equals("") ? getString(R.string.no_website) : p.website);
 
         description = (WebView) findViewById(R.id.description);
         String html_data = "<style>img{max-width:100%;height:auto;} iframe{width:100%;}</style> ";
-        html_data += p.description;
+        html_data += p.getDescription();
         description.getSettings().setBuiltInZoomControls(true);
         description.setBackgroundColor(Color.TRANSPARENT);
         description.setWebChromeClient(new WebChromeClient());

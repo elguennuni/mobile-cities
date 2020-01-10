@@ -99,7 +99,7 @@ public class AdapterPlaceGrid extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (holder instanceof ViewHolder) {
             ViewHolder vItem = (ViewHolder) holder;
             final Place p = items.get(position);
-            vItem.title.setText(p.name);
+            vItem.title.setText(p.getName());
             Tools.displayImageThumb(ctx, vItem.image, Constant.getURLimgPlace(p.image), 0.5f);
 
             if (p.distance == -1) {
