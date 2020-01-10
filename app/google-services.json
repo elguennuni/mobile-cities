@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "492637735964",
+    "firebase_url": "https://thecity-f3c79.firebaseio.com",
+    "project_id": "thecity-f3c79",
+    "storage_bucket": "thecity-f3c79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492637735964:android:18ed4abed29ffd69c6a3d9",
+        "android_client_info": {
+          "package_name": "ma.mobigo.tourisme.maroc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492637735964-prt823ft85kn6ctn8d2ek0hgptmdlksk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-yZWGSuIZpHktXQ82TE1AjXrYjk5NiCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492637735964-prt823ft85kn6ctn8d2ek0hgptmdlksk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
