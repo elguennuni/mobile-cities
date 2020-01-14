@@ -62,6 +62,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_LAT         = "lat";
     private static final String KEY_DISTANCE    = "distance";
     private static final String KEY_LAST_UPDATE = "last_update";
+    private static final String KEY_NAME_FR        = "name_fr";
+    private static final String KEY_ADDRESS_FR          = "address_fr";
+    private static final String KEY_DESCRIPTION_FR    = "description_fr";
+    private static final String KEY_NAME_AR = "name_ar";
+    private static final String KEY_ADDRESS_AR     = "address_ar";
+    private static final String KEY_DESCRIPTION_AR = "description_ar";
 
     // Table Columns names TABLE_IMAGES
     private static final String KEY_IMG_PLACE_ID    = "place_id";
@@ -128,7 +134,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_LNG + " REAL, "
                 + KEY_LAT + " REAL, "
                 + KEY_DISTANCE + " REAL, "
-                + KEY_LAST_UPDATE + " NUMERIC "
+                + KEY_LAST_UPDATE + " NUMERIC, "
+                + KEY_NAME_FR+ " TEXT, "
+                + KEY_ADDRESS_FR + " TEXT, "
+                + KEY_DESCRIPTION_FR+ " TEXT, "
+                + KEY_NAME_AR+ " TEXT, "
+                + KEY_ADDRESS_AR + " TEXT, "
+                + KEY_DESCRIPTION_AR+ " TEXT "
                 + ")";
         db.execSQL(CREATE_TABLE);
     }
@@ -253,24 +265,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void insertListPlaceAsync(List<Place> modelList) {
         String sql = "INSERT OR REPLACE INTO "+TABLE_PLACE + " ";
         sql = sql + "("+KEY_PLACE_ID+", "+KEY_NAME+","+KEY_IMAGE+", "+KEY_ADDRESS+", "+KEY_PHONE +", "
-                +KEY_WEBSITE+", "+KEY_DESCRIPTION+", "+KEY_LNG+", "+KEY_LAT+", "+KEY_DISTANCE+", "+KEY_LAST_UPDATE+") ";
-        sql = sql + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                +KEY_WEBSITE+", "+KEY_DESCRIPTION+", "+KEY_LNG+", "+KEY_LAT+", "+KEY_DISTANCE+", "+KEY_LAST_UPDATE+"," +
+                 KEY_NAME_FR+", "+KEY_ADDRESS_FR+", "+KEY_DESCRIPTION_FR +", "+
+                KEY_NAME_AR+", "+KEY_ADDRESS_AR+", "+KEY_DESCRIPTION_AR +") ";
+        sql = sql + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         db.beginTransaction();
 
         SQLiteStatement stmt = db.compileStatement(sql);
         modelList = Tools.itemsWithDistance(context, modelList);
         for (Place p : modelList) {
             stmt.bindLong(1, p.place_id);
-            stmt.bindString(2, p.getName());
+            stmt.bindString(2, p.name+"");
             stmt.bindString(3, p.image);
-            stmt.bindString(4, p.getAddress());
+            stmt.bindString(4, p.address+"");
             stmt.bindString(5, p.phone);
             stmt.bindString(6, p.website);
-            stmt.bindString(7, p.getDescription());
+            stmt.bindString(7, p.description+"");
             stmt.bindDouble(8, p.lng);
             stmt.bindDouble(9, p.lat);
             stmt.bindDouble(10, p.distance);
             stmt.bindDouble(11, p.last_update);
+
+            stmt.bindString(12, p.name_fr+"");
+            stmt.bindString(13, p.address_fr+"");
+            stmt.bindString(14, p.description_fr+"");
+
+            stmt.bindString(15, p.name_ar+"");
+            stmt.bindString(16, p.address_ar+"");
+            stmt.bindString(17, p.description_ar+"");
+
             stmt.execute();
             stmt.clearBindings();
 
@@ -316,6 +339,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_LAT, model.lat);
         values.put(KEY_DISTANCE, model.distance);
         values.put(KEY_LAST_UPDATE, model.last_update);
+
+        values.put(KEY_NAME_FR, model.name_fr);
+        values.put(KEY_ADDRESS_FR, model.address_fr);
+        values.put(KEY_DESCRIPTION_FR, model.description_fr);
+
+        values.put(KEY_NAME_AR, model.name_ar);
+        values.put(KEY_ADDRESS_AR, model.address_ar);
+        values.put(KEY_DESCRIPTION_AR, model.description_ar);
+
         return values;
     }
 
@@ -437,6 +469,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         p.lat         = cur.getDouble(cur.getColumnIndex(KEY_LAT));
         p.distance    = cur.getFloat(cur.getColumnIndex(KEY_DISTANCE));
         p.last_update = cur.getLong(cur.getColumnIndex(KEY_LAST_UPDATE));
+
+        p.name_fr        = cur.getString(cur.getColumnIndex(KEY_NAME_FR));
+        p.address_fr        = cur.getString(cur.getColumnIndex(KEY_ADDRESS_FR));
+        p.description_fr        = cur.getString(cur.getColumnIndex(KEY_DESCRIPTION_FR));
+
+        p.name_ar        = cur.getString(cur.getColumnIndex(KEY_NAME_AR));
+        p.address_ar        = cur.getString(cur.getColumnIndex(KEY_ADDRESS_AR));
+        p.description_ar        = cur.getString(cur.getColumnIndex(KEY_DESCRIPTION_AR));
         return p;
     }
 

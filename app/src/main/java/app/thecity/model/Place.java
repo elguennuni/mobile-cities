@@ -21,13 +21,13 @@ public class Place implements Serializable, ClusterItem {
     public long last_update;
     public float distance = -1;
 
-    private String name_fr;
-    private String address_fr;
-    private String description_fr;
+    public String name_fr;
+    public String address_fr;
+    public String description_fr;
 
-    private String name_ar;
-    private String address_ar;
-    private String description_ar;
+    public String name_ar;
+    public String address_ar;
+    public String description_ar;
 
     public List<Category> categories = new ArrayList<>();
     public List<Images> images = new ArrayList<>();
