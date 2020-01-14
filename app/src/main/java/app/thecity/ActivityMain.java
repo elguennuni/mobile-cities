@@ -194,11 +194,11 @@ public class ActivityMain extends AppCompatActivity {
                 startActivity(i);
                 break;
 
-            case R.id.nav_featured:
+/*            case R.id.nav_featured:
                 fragment = new FragmentCategory();
                 bundle.putInt(FragmentCategory.TAG_CATEGORY, cat[10]);
                 actionBar.setTitle(title);
-                break;
+                break;*/
             case R.id.nav_tour:
                 fragment = new FragmentCategory();
                 bundle.putInt(FragmentCategory.TAG_CATEGORY, cat[0]);
@@ -234,7 +234,7 @@ public class ActivityMain extends AppCompatActivity {
                 bundle.putInt(FragmentCategory.TAG_CATEGORY, cat[6]);
                 actionBar.setTitle(title);
                 break;
-            case R.id.nav_religion:
+/*            case R.id.nav_religion:
                 fragment = new FragmentCategory();
                 bundle.putInt(FragmentCategory.TAG_CATEGORY, cat[7]);
                 actionBar.setTitle(title);
@@ -248,7 +248,7 @@ public class ActivityMain extends AppCompatActivity {
                 fragment = new FragmentCategory();
                 bundle.putInt(FragmentCategory.TAG_CATEGORY, cat[9]);
                 actionBar.setTitle(title);
-                break;
+                break;*/
             default:
                 break;
 

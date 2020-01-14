@@ -221,9 +221,9 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
                     case R.id.nav_all:
                         cat_id = -1;
                         break;
-                    case R.id.nav_featured:
+/*                    case R.id.nav_featured:
                         cat_id = cat[10];
-                        break;
+                        break;*/
                     case R.id.nav_tour:
                         cat_id = cat[0];
                         break;
@@ -245,7 +245,7 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
                     case R.id.nav_transport:
                         cat_id = cat[6];
                         break;
-                    case R.id.nav_religion:
+/*                    case R.id.nav_religion:
                         cat_id = cat[7];
                         break;
                     case R.id.nav_public:
@@ -253,7 +253,7 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
                         break;
                     case R.id.nav_money:
                         cat_id = cat[9];
-                        break;
+                        break;*/
                 }
 
                 // get category object when menu click

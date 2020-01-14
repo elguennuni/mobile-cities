@@ -27,9 +27,7 @@
 
     <!--=== activity Maps ====================================================================== -->
     <string name="no_item_at">Aucun élément à</string>
-    <string name="dialog_content_gps">
-        Le GPS est désactivé sur votre appareil. Souhaitez-vous l'activer?
-    </string>
+    <string name="dialog_content_gps">Le GPS est désactivé sur votre appareil. Souhaitez-vous l\'activer?</string>
     <string name="activity_title_maps">@string/title_nav_all</string>
 
     <!--=== activity PlaceDetails ============================================================== -->
