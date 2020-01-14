@@ -1,0 +1,121 @@
+<resources>
+    <string name="app_name">دليل الدار بيضاء</string>
+
+    <string name="city_name">الدار بيضاء</string>
+    <string name="city_address">وسط غرب المغرب</string>
+    <string name="about_text">تطبيق يقترع عليك أفضل الأماكن السياحية لزيارتها في مدينة الدار البيضاء</string>
+
+    <!--=== Nav Drawer Menu Items ============================================================== -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">أغلق درج التنقل</string>
+    <string name="title_nav_all">جميع الأماكن</string>
+    <string name="title_nav_fav">المفضلة</string>
+    <string name="title_nav_news">أخبار</string>
+
+    <string name="title_nav_tour">مواقع سياحية</string>
+    <string name="title_nav_food">الطعام والشراب</string>
+    <string name="title_nav_hotels">الفنادق</string>
+    <string name="title_nav_ent">وسائل الترفيه</string>
+    <string name="title_nav_sport">رياضة</string>
+    <string name="title_nav_shop">التسوق</string>
+    <string name="title_nav_transport">المواصلات</string>
+
+
+    <!--=== activity FullScreenImage =========================================================== -->
+
+    <!--=== activity Main ====================================================================== -->
+    <string name="press_again_exit_app">اضغط مرة أخرى للخروج</string>
+
+    <!--=== activity Maps ====================================================================== -->
+    <string name="no_item_at">لا مقال في</string>
+    <string name="dialog_content_gps">
+        GPS is disabled in your device. Would you like to enable it?
+    </string>
+    <string name="activity_title_maps">@string/title_nav_all</string>
+
+    <!--=== activity PlaceDetails ============================================================== -->
+    <string name="add_favorite">تمت الإضافة إلى المفضلة</string>
+    <string name="remove_favorite">إزالة من المفضلة</string>
+    <string name="no_phone_number">لا يوجد رقم الهاتف</string>
+    <string name="no_website">لا يوجد موقع الإلكتروني</string>
+    <string name="fail_dial_number">لا يمكن طلب رقم الهاتف</string>
+    <string name="fail_open_website">لا يمكن فتح الموقع</string>
+    <string name="unable_create_map">عذرا! غير قادر على إنشاء الخرائط</string>
+    <string name="failed_load_details">فشل تحميل المعلومات</string>
+    <string name="photos_title">الصور</string>
+    <string name="description_title">وصف</string>
+    <string name="map_title">خريطة</string>
+    <string name="map_view">عرض على الخريطة</string>
+    <string name="map_navigate">التنقل</string>
+
+    <!--=== activity Search ==================================================================== -->
+    <string name="hint_search">البحث عن مكان ...</string>
+    <string name="please_fill">المرجو إدخال كلمة البحث</string>
+
+    <!--=== activity Setting =================================================================== -->
+    <string name="copyright">حقوق الطبع والنشر © MobiGo. \nجميع الحقوق محفوظة </string>
+    <string name="pref_category_notif">إشعارات</string>
+    <string name="pref_category_display">Display</string>
+    <string name="pref_category_other">Others</string>
+
+    <string name="pref_title_notif">دفع الإشعارات</string>
+    <string name="pref_title_ringtone">رنة</string>
+    <string name="pref_title_vibrate">اهتزاز</string>
+    <string name="pref_title_cache">مسح صورة ذاكرة التخزين المؤقت</string>
+    <string name="pref_title_theme">لون الواجهة</string>
+    <string name="pref_title_more">المزيد من التطبيقات</string>
+    <string name="pref_title_rate">تقييم</string>
+    <string name="pref_title_about">من نحن ؟</string>
+    <string name="pref_ringtone_silent">صامت</string>
+    <string name="pref_title_copyright">حقوق النشر</string>
+    <string name="pref_title_dev_name">طور من طرف</string>
+    <string name="pref_title_term">Term &amp; Policies</string>
+
+    <string name="dialog_confirm_title">تأكيد</string>
+    <string name="dialog_about_title">من نحن ؟</string>
+    <string name="activity_title_settings">الإعدادات</string>
+
+    <string name="message_clear_image_cache">هل تريد محو ذاكرة التخزين المؤقت للصور؟</string>
+    <string name="message_after_clear_image_cache">Image cache successfully clear</string>
+    <string name="title_dialog_theme">لون التطبيق</string>
+    <string name="grant_permission_account_storage">Grant account, storage permission to enable</string>
+    <string name="content_term">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor risus, aliquet a erat quis, viverra molestie orci. Suspendisse vehicula porta libero. Nam tincidunt nulla ipsum, vel iaculis risus scelerisque sed. Phasellus venenatis, enim vel placerat blandit, leo eros bibendum erat, at auctor mauris diam ac risus. Aenean sit amet congue neque, sit amet condimentum elit. Fusce lacinia massa vel nisl scelerisque, in scelerisque dolor elementum. Vivamus leo enim, congue dictum congue vitae, porttitor id purus. Sed eu ultricies erat. Morbi hendrerit, mi ac volutpat commodo, magna turpis pretium nibh, at fringilla eros lorem quis tellus. Praesent porttitor purus nibh, ac vestibulum massa fringilla vel. Pellentesque dapibus nulla quis luctus dictum. In scelerisque ut ex sed facilisis. Nunc eu finibus nulla, ut hendrerit sem. Suspendisse accumsan risus vel diam fringilla iaculis.
+        \n\nQuisque facilisis finibus aliquam. Sed mattis, dui fringilla ornare finibus, orci odio blandit risus, ut maximus dui odio non leo. Donec laoreet lacus nisi, a mollis velit suscipit ac. Quisque faucibus ut nisl in congue. Nam sagittis consectetur tempus. Suspendisse eget posuere dui. Donec ultricies velit ex, vel cursus odio sollicitudin in. Nullam faucibus auctor ligula, eu rhoncus dui facilisis a. Curabitur vel feugiat est. Quisque congue at enim eleifend ultrices. Proin dapibus risus lorem, nec condimentum nunc consequat vitae. Quisque sapien lorem, vestibulum vitae justo eget, fringilla eleifend nisi.
+        \n\nMauris ultricies augue sit amet est sollicitudin laoreet. Fusce ut congue felis. Fusce dictum tristique elit nec iaculis. Mauris sodales tempus fringilla. Fusce nec nunc tempus, tempor sapien sit amet, ultricies erat. Mauris ultrices ac lorem ultrices facilisis. Nam pharetra, nisi a imperdiet interdum, nunc justo ultricies nisl, a laoreet massa dui vel enim. Pellentesque et magna ac tellus ullamcorper malesuada a ac nisl. Curabitur id est et neque convallis accumsan. Aliquam eleifend varius massa. Curabitur eu finibus tortor.
+        \n\nVivamus aliquam nisl rutrum orci volutpat porta in ornare est. Quisque ligula ipsum, vulputate id aliquam vitae, semper vitae orci. Nam non pulvinar ligula, eget tincidunt ante. Quisque sapien massa, varius tempus pretium id, vehicula at magna. Ut ut ultrices augue. Nam nec ullamcorper tellus, at finibus lectus. Fusce vel iaculis mauris, id porta nulla. Aenean ac mollis sapien. Morbi imperdiet augue tempus nulla luctus, sit amet feugiat purus elementum.
+    </string>
+
+
+    <!--=== activity Splash ==================================================================== -->
+    <string name="splash_welcome_text">مرحبا</string>
+    <string name="splash_desc_text">تصفح جميع المواقع السياحية و الأماكن المتيرة للاهتمام باستخدام تطبيق دليل الدار بيضاء</string>
+
+    <!--=== fragment Category ================================================================== -->
+    <string name="refresh_failed">فشل التحديث</string>
+    <string name="load_of">تحميل %1$d من  %2$d</string>
+    <string name="load_success">تم بنجاح تحميل البيانات</string>
+
+
+    <!-- ==================== OTHERS STRING ==================================================== -->
+    <string name="action_settings">الإعدادات</string>
+    <string name="no_internet">لا يوجد اتصال بالإنترنت</string>
+    <string name="task_running">لا يزال قيد التشغيل</string>
+    <string name="no_item">لا مقال</string>
+
+    <!--Basic action Text-->
+    <string name="OK">OK</string>
+    <string name="YES">نعم</string>
+    <string name="NO">لا</string>
+    <string name="SETTING">الإعدادات</string>
+    <string name="CANCEL">إلغاء</string>
+    <string name="SAVE">حفظ</string>
+    <string name="DISMISS">رفض</string>
+    <string name="HIDE">إخفاء</string>
+    <string name="RETRY">إعادة المحاولة</string>
+    <string name="DETAILS">تفاصيل</string>
+    <string name="FAILED">فشل</string>
+    <string name="image_of">%1$d of %2$d</string>
+
+
+</resources>

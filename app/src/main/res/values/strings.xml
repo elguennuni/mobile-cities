@@ -1,32 +1,32 @@
 <resources>
-    <string name="app_name">The City</string>
+    <string name="app_name">Casablanca Guide</string>
 
-    <string name="city_name">Bandung</string>
-    <string name="city_address">Jawa Barat, Indonesia</string>
-    <string name="about_text">App display Interesting spot at City</string>
+    <string name="city_name">Casablanca</string>
+    <string name="city_address">"Central-western part of Morocco "</string>
+    <string name="about_text">Applications to find the best places to visit</string>
 
     <!-- Replace with your more apps URL -->
-    <string name="more_app_url">http://portfolio.dream-space.web.id/</string>
+    <string name="more_app_url" translatable="false">http://portfolio.dream-space.web.id/</string>
 
     <!--=== DATA FOR ADMOB ===================================================================== -->
-    <string name="publisher_id">pub-0000000000000000</string>
-    <string name="privacy_policy_url">
+    <string name="publisher_id" translatable="false">pub-4325138786186198</string>
+    <string name="privacy_policy_url" translatable="false">
         http://dream-space.web.id/
     </string>
 
     <!--Edit with your admob app id-->
-    <string name="admob_app_id">ca-app-pub-3239677920600357~5416958163</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-4325138786186198~9768427009</string>
 
     <!--Replace with your own banner ad unit id. -->
-    <string name="banner_ad_unit_id">ca-app-pub-3239677920600357/2323890961</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-4325138786186198/7281670945</string>
 
     <!--Replace with your own interstitial ad unit id. -->
-    <string name="interstitial_ad_unit_id">ca-app-pub-3239677920600357/2323890961</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-4325138786186198/1187035889</string>
 
 
     <!--=== GOOGLE API KEY STRING ============================================================== -->
     <!-- API KEY FOR MAP -->
-    <string name="api_key">AIzaSyBq_SNDvh_1RqwQco2YcSXUH5D1_2g2KMM</string>
+    <string name="api_key" translatable="false">AIzaSyBq_SNDvh_1RqwQco2YcSXUH5D1_2g2KMM</string>
 
 
     <!--=== Nav Drawer Menu Items ============================================================== -->
@@ -36,7 +36,7 @@
     <string name="title_nav_fav">Favorites</string>
     <string name="title_nav_news">News Info</string>
 
-    <string name="title_nav_featured">Featured Places</string>
+   <!-- <string name="title_nav_featured">Featured Places</string>-->
     <string name="title_nav_tour">Tourist Destination</string>
     <string name="title_nav_food">Food \u0026 Drink</string>
     <string name="title_nav_hotels">Hotels</string>
@@ -44,9 +44,9 @@
     <string name="title_nav_sport">Sport</string>
     <string name="title_nav_shop">Shopping</string>
     <string name="title_nav_transport">Transportation</string>
-    <string name="title_nav_religion">Religion</string>
+   <!-- <string name="title_nav_religion">Religion</string>
     <string name="title_nav_public">Public Services</string>
-    <string name="title_nav_money">Money</string>
+    <string name="title_nav_money">Money</string>-->
 
     <!--=== activity FullScreenImage =========================================================== -->
     <string name="image_of">%1$d of %2$d</string>
@@ -64,8 +64,8 @@
     <!--=== activity PlaceDetails ============================================================== -->
     <string name="add_favorite">added to favorites</string>
     <string name="remove_favorite">remove from favorites</string>
-    <string name="no_phone_number">do not have a phone</string>
-    <string name="no_website">do not have a website</string>
+    <string name="no_phone_number">no phone number</string>
+    <string name="no_website">no website</string>
     <string name="fail_dial_number">Cannot dial phone number</string>
     <string name="fail_open_website">Cannot open website</string>
     <string name="unable_create_map">Sorry! unable to create maps</string>
@@ -81,9 +81,9 @@
     <string name="please_fill">Please fill search input</string>
 
     <!--=== activity Setting =================================================================== -->
-    <string name="default_notification_channel_id">Default</string>
-    <string name="developer_name">Dream Space</string>
-    <string name="copyright">Copyright © 2016 Dream Space. \nAll right reserved</string>
+    <string name="default_notification_channel_id" translatable="false">Default</string>
+    <string name="developer_name" translatable="false">MobiGo</string>
+    <string name="copyright">Copyright © 2020 MobiGo. \nAll right reserved</string>
     <string name="pref_category_notif">Notifications</string>
     <string name="pref_category_display">Display</string>
     <string name="pref_category_other">Others</string>
@@ -95,19 +95,19 @@
     <string name="pref_title_theme">Theme Color</string>
     <string name="pref_title_more">More Apps</string>
     <string name="pref_title_rate">Rate</string>
-    <string name="pref_title_about">About</string>
+    <string name="pref_title_about">About us</string>
     <string name="pref_ringtone_silent">Silent</string>
     <string name="pref_title_copyright">Copyright</string>
     <string name="pref_title_dev_name">Developed By</string>
     <string name="pref_title_term">Term &amp; Policies</string>
 
-    <string name="pref_key_notif">key_notifications</string>
-    <string name="pref_key_ringtone">key_ringtone</string>
-    <string name="pref_key_vibrate">key_vibrate</string>
-    <string name="pref_key_reset_cache">key_reset_cache</string>
-    <string name="pref_key_theme">key_theme</string>
+    <string name="pref_key_notif" translatable="false">key_notifications</string>
+    <string name="pref_key_ringtone" translatable="false">key_ringtone</string>
+    <string name="pref_key_vibrate" translatable="false">key_vibrate</string>
+    <string name="pref_key_reset_cache" translatable="false">key_reset_cache</string>
+    <string name="pref_key_theme" translatable="false">key_theme</string>
     <string name="dialog_confirm_title">Confirmation</string>
-    <string name="dialog_about_title">About</string>
+    <string name="dialog_about_title">About us</string>
     <string name="activity_title_settings">Settings</string>
 
     <string name="message_clear_image_cache">Are you sure want to clear image cache?</string>
@@ -124,11 +124,11 @@
 
     <!--=== activity Splash ==================================================================== -->
     <string name="splash_welcome_text">WELCOME</string>
-    <string name="splash_desc_text">Browse all the interesting place using The City app</string>
+    <string name="splash_desc_text">Browse all the interesting place using Casablanca guide App</string>
 
     <!--=== fragment Category ================================================================== -->
     <string name="refresh_failed">Refresh failed</string>
-    <string name="load_of">Load %1$d of %2$d</string>
+    <string name="load_of">Loading %1$d of %2$d</string>
     <string name="load_success">Successfully load data</string>
 
 

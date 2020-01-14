@@ -10,10 +10,10 @@ public class AppConfig {
     public static final boolean ADS_NEWS_DETAILS_BANNER = true;
 
     // if you not use ads you can set this to false
-    public static final boolean ENABLE_GDPR = true;
+    public static final boolean ENABLE_GDPR = false;
 
     // this flag if you want to hide menu news info
-    public static final boolean ENABLE_NEWS_INFO = true;
+    public static final boolean ENABLE_NEWS_INFO = false;
 
     // flag for save image offline
     public static final boolean IMAGE_CACHE = true;
