@@ -86,7 +86,7 @@
 
     <!--=== activity Splash ==================================================================== -->
     <string name="splash_welcome_text">BIENVENU</string>
-    <string name="splash_desc_text">Parcourez tous les endroits intéressants en utilisant l\\\'application Casablanca Guid</string>
+    <string name="splash_desc_text">Parcourez tous les endroits intéressants en utilisant l\\\\\'application Casablanca GuideS</string>
 
     <!--=== fragment Category ================================================================== -->
     <string name="refresh_failed">Refresh failed</string>
@@ -113,6 +113,7 @@
     <string name="DETAILS">DÉTAILS</string>
     <string name="FAILED">ÉCHOUÉ</string>
     <string name="image_of">%1$d de %2$d</string>
+    <string name="pref_title_language">Français</string>
 
 
 </resources>

@@ -152,4 +152,15 @@
     <string name="FAILED">FAILED</string>
 
 
+    <string name="language_setting">language_setting</string>
+    <!-- Language select dialog -->
+    <string-array name="lang_select">
+        <item>English</item>
+        <item>Français</item>
+        <item>عربية</item>
+    </string-array>
+    <string name="pref_key_language" translatable="false">key_language</string>
+    <string name="pref_title_language" >English</string>
+
+
 </resources>

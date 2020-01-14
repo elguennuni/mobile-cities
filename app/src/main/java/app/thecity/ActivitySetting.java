@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,10 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import app.thecity.data.AppConfig;
 import app.thecity.data.Constant;
@@ -69,6 +73,7 @@ public class ActivitySetting extends PreferenceActivity {
         Preference ratePref = (Preference) findPreference("key_rate");
         Preference morePref = (Preference) findPreference("key_more");
         Preference aboutPref = (Preference) findPreference("key_about");
+        Preference languaugePref= (Preference) findPreference(getString(R.string.pref_key_language));
         final Preference prefTerm = (Preference) findPreference(getString(R.string.pref_title_term));
 
         if (!AppConfig.THEME_COLOR) {
@@ -144,6 +149,14 @@ public class ActivitySetting extends PreferenceActivity {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 dialogTerm(ActivitySetting.this);
+                return true;
+            }
+        });
+
+        languaugePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                showChangeLangDialog();
                 return true;
             }
         });
@@ -362,5 +375,61 @@ public class ActivitySetting extends PreferenceActivity {
             mDelegate = AppCompatDelegate.create(this, null);
         }
         return mDelegate;
+    }
+
+
+
+
+
+
+    public void showChangeLangDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.language_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final Spinner spinner1 = (Spinner) dialogView.findViewById(R.id.spinner1);
+
+        dialogBuilder.setTitle("Title");//getResources().getString(R.string.lang_dialog_title));
+        dialogBuilder.setMessage("Message");//getResources().getString(R.string.lang_dialog_message));
+        dialogBuilder.setPositiveButton("Change", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                int langpos = spinner1.getSelectedItemPosition();
+                switch(langpos) {
+                    case 0: //English
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
+                        setLangRecreate("en");
+                        return;
+                    case 1: //Francais
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "hi").commit();
+                        setLangRecreate("fr");
+                        return;
+                    case 2:
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "fr").commit();
+                        setLangRecreate("ar");
+                        return;;
+                    default: //By default set to english
+                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "ar").commit();
+                        setLangRecreate("en");
+                        return;
+                }
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
+    public void setLangRecreate(String langval) {
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        locale = new Locale(langval);
+        Locale.setDefault(locale);
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        recreate();
     }
 }

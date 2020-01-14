@@ -32,6 +32,10 @@
     <PreferenceCategory
         android:key="@string/pref_category_display"
         android:title="@string/pref_category_display">
+
+        <Preference
+            android:key="@string/pref_key_language"
+            android:title="@string/pref_title_language" />
         <Preference
             android:key="@string/pref_key_reset_cache"
             android:title="@string/pref_title_cache" />
