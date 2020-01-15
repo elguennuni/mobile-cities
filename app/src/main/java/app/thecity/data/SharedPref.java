@@ -19,6 +19,7 @@ public class SharedPref {
     private static final String FCM_PREF_KEY = "app.thecity.data.FCM_PREF_KEY";
     private static final String SERVER_FLAG_KEY = "app.thecity.data.SERVER_FLAG_KEY";
     private static final String THEME_COLOR_KEY = "app.thecity.data.THEME_COLOR_KEY";
+    private static final String LANGUAUGE_KEY = "app.thecity.data.LANGUAUGE_KEY";
     private static final String LAST_PLACE_PAGE = "LAST_PLACE_PAGE_KEY";
 
     // need refresh
@@ -137,4 +138,15 @@ public class SharedPref {
         sharedPreferences.edit().putInt("OPEN_COUNTER_KEY", val).apply();
     }
 
+    /**
+     * lANGUAUGE
+     */
+
+    public String getLanguauge() {
+        return sharedPreferences.getString(LANGUAUGE_KEY, "");
+    }
+
+    public void setLanguage(String lng) {
+        sharedPreferences.edit().putString(LANGUAUGE_KEY, lng).apply();
+    }
 }

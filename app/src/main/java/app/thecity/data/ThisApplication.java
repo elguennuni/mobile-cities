@@ -1,7 +1,11 @@
 package app.thecity.data;
 
 import android.app.Application;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -16,6 +20,9 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
+import java.util.Locale;
+
+import app.thecity.ActivitySplash;
 import app.thecity.R;
 import app.thecity.connection.API;
 import app.thecity.connection.RestAdapter;
@@ -53,6 +60,26 @@ public class ThisApplication extends Application {
 
         // activate analytics tracker
         getFirebaseAnalytics();
+
+        // Language defualt
+        if("".equals(sharedPref.getLanguauge()))
+        {
+            sharedPref.setLanguage(Locale.getDefault().getLanguage());
+        }
+
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        Locale locale = new Locale(sharedPref.getLanguauge());
+        Locale.setDefault(locale);
+        //config.locale = locale;
+        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        Resources res = getBaseContext().getResources();
+        if (Build.VERSION.SDK_INT >= 17) {
+            config.setLocale(locale);
+            getBaseContext().createConfigurationContext(config);
+        } else {
+            config.locale = locale;
+            res.updateConfiguration(config, res.getDisplayMetrics());
+        }
     }
 
     public static synchronized ThisApplication getInstance() {

@@ -116,7 +116,10 @@
     <string name="DETAILS">تفاصيل</string>
     <string name="FAILED">فشل</string>
     <string name="image_of">%1$d of %2$d</string>
-    <string name="pref_title_language">عربية</string>
+    <string name="pref_title_language">لغة التطبيق</string>
+    <string name="lang_dialog_message" >يجب إعادة تشغيل التطبيق حتى يتم تغيير اللغة</string>
+    <string name="change_lang_dialog_button">تغير</string>
+    <string name="cancel_lang_dialog_button">رجوع</string>
 
 
 </resources>

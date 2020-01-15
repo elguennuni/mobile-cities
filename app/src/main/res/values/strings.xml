@@ -151,8 +151,8 @@
     <string name="DETAILS">DETAILS</string>
     <string name="FAILED">FAILED</string>
 
-
-    <string name="language_setting">language_setting</string>
+    <!-- ==================== LANGUAGE==================================================== -->
+    <string name="language_setting" translatable="false">language_setting</string>
     <!-- Language select dialog -->
     <string-array name="lang_select">
         <item>English</item>
@@ -160,7 +160,10 @@
         <item>عربية</item>
     </string-array>
     <string name="pref_key_language" translatable="false">key_language</string>
-    <string name="pref_title_language" >English</string>
+    <string name="pref_title_language" >App Language</string>
+    <string name="lang_dialog_message" >You must restart the application for the change to take effect</string>
+    <string name="change_lang_dialog_button">Change</string>
+    <string name="cancel_lang_dialog_button">Cancel</string>
 
 
 </resources>

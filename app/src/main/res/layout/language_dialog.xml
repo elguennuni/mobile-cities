@@ -6,13 +6,38 @@
     android:padding="10dp"
     android:orientation="vertical">
 
-    <Spinner
+<!--    <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/lang_select"
         android:prompt="@string/language_setting"
         android:padding="10dp"
-        />
+        />-->
 
+
+    <RadioGroup
+        android:id="@+id/radio_groupe_languauge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RadioButton
+            android:id="@+id/lang_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="English" />
+
+        <RadioButton
+            android:id="@+id/lang_french"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Français" />
+
+        <RadioButton
+            android:id="@+id/lang_arab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textDirection="ltr"
+            android:text="عربية" />
+    </RadioGroup>
 </LinearLayout>

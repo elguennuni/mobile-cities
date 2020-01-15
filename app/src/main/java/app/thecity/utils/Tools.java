@@ -236,9 +236,25 @@ public class Tools {
 
     public static void methodShare(Activity act, Place p) {
 
+        /* Get Languauge */
+        SharedPref sharedPref =new SharedPref(act);
+        String name,adresse;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            name = p.name_fr;
+            adresse=p.address_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            name = p.name_ar;
+            adresse=p.address_ar;
+        }
+        else{
+            name= p.name;
+            adresse=p.address;
+        }
+        /* *** End Language **********/
         // string to share
-        String shareBody = "View good place \'" + p.getName() + "\'"
-                + "\n" + "located at : " + p.getAddress() + "\n\n"
+        String shareBody = "View good place \'" + name + "\'"
+                + "\n" + "located at : " + adresse + "\n\n"
                 + "Using app : " + getPlayStoreUrl(act);
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

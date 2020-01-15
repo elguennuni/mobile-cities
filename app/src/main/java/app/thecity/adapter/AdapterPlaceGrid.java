@@ -20,6 +20,7 @@ import java.util.List;
 
 import app.thecity.R;
 import app.thecity.data.Constant;
+import app.thecity.data.SharedPref;
 import app.thecity.model.Place;
 import app.thecity.utils.Tools;
 
@@ -99,7 +100,22 @@ public class AdapterPlaceGrid extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (holder instanceof ViewHolder) {
             ViewHolder vItem = (ViewHolder) holder;
             final Place p = items.get(position);
-            vItem.title.setText(p.getName());
+
+            /* Get Languauge */
+            SharedPref sharedPref =new SharedPref(ctx);
+            final String name;
+            if("fr".equals(sharedPref.getLanguauge())) {
+                name = p.name_fr;
+            }
+            else if("ar".equals(sharedPref.getLanguauge())) {
+                name = p.name_ar;
+            }
+            else{
+                name= p.name;
+            }
+            /* *** End Language **********/
+
+            vItem.title.setText(name);
             Tools.displayImageThumb(ctx, vItem.image, Constant.getURLimgPlace(p.image), 0.5f);
 
             if (p.distance == -1) {

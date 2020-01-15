@@ -3,11 +3,14 @@ package app.thecity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -34,8 +37,11 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -75,6 +81,15 @@ public class ActivitySetting extends PreferenceActivity {
         Preference aboutPref = (Preference) findPreference("key_about");
         Preference languaugePref= (Preference) findPreference(getString(R.string.pref_key_language));
         final Preference prefTerm = (Preference) findPreference(getString(R.string.pref_title_term));
+
+
+        String language_saved=sharedPref.getLanguauge();
+        if("fr".equals(language_saved))
+            languaugePref.setSummary("Français");
+        else if("en".equals(language_saved))
+            languaugePref.setSummary("English");
+        else
+            languaugePref.setSummary("عربية");
 
         if (!AppConfig.THEME_COLOR) {
             PreferenceCategory categoryOthers = (PreferenceCategory) findPreference(getString(R.string.pref_category_display));
@@ -380,42 +395,61 @@ public class ActivitySetting extends PreferenceActivity {
 
 
 
-
+    /*
+     * To Change the language
+     */
 
     public void showChangeLangDialog() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.language_dialog, null);
         dialogBuilder.setView(dialogView);
 
-        final Spinner spinner1 = (Spinner) dialogView.findViewById(R.id.spinner1);
+        final RadioGroup radioGroupe = (RadioGroup) dialogView.findViewById(R.id.radio_groupe_languauge);
+        RadioButton radio_en=(RadioButton)dialogView.findViewById(R.id.lang_english);
+        RadioButton radio_fr=(RadioButton)dialogView.findViewById(R.id.lang_french);
+        RadioButton radio_ar=(RadioButton)dialogView.findViewById(R.id.lang_arab);
 
-        dialogBuilder.setTitle("Title");//getResources().getString(R.string.lang_dialog_title));
-        dialogBuilder.setMessage("Message");//getResources().getString(R.string.lang_dialog_message));
-        dialogBuilder.setPositiveButton("Change", new DialogInterface.OnClickListener() {
+        String language_saved=sharedPref.getLanguauge();
+        if("fr".equals(language_saved))
+            radio_fr.setChecked(true);
+        else if("en".equals(language_saved))
+            radio_en.setChecked(true);
+        else
+            radio_ar.setChecked(true);
+
+       //  RadioButton radioButton;;
+
+        dialogBuilder.setTitle(getResources().getString(R.string.pref_title_language));//;
+        dialogBuilder.setMessage(getResources().getString(R.string.lang_dialog_message));//;
+        dialogBuilder.setPositiveButton(getResources().getString(R.string.change_lang_dialog_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                int langpos = spinner1.getSelectedItemPosition();
-                switch(langpos) {
-                    case 0: //English
-                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
+                int selectedId  = radioGroupe.getCheckedRadioButtonId();
+
+                switch(selectedId) {
+                    case R.id.lang_english: //English
+                        //PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
+                        sharedPref.setLanguage("en");
                         setLangRecreate("en");
                         return;
-                    case 1: //Francais
-                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "hi").commit();
+                    case R.id.lang_french: //Francais
+                        sharedPref.setLanguage("fr");
                         setLangRecreate("fr");
                         return;
-                    case 2:
-                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "fr").commit();
+                    case R.id.lang_arab:
+                        sharedPref.setLanguage("ar");
                         setLangRecreate("ar");
-                        return;;
+                        return;
                     default: //By default set to english
                         PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "ar").commit();
                         setLangRecreate("en");
                         return;
                 }
-            }
+
+                //showMsgAlertChangeLanguauge();
+                         }
         });
-        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton(getResources().getString(R.string.cancel_lang_dialog_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 //pass
             }
@@ -424,12 +458,30 @@ public class ActivitySetting extends PreferenceActivity {
         b.show();
     }
 
+/*    public void showMsgAlertChangeLanguauge()
+    {
+
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.lang_dialog_message), Toast.LENGTH_LONG);
+
+    }*/
     public void setLangRecreate(String langval) {
         Configuration config = getBaseContext().getResources().getConfiguration();
-        locale = new Locale(langval);
+        Locale locale = new Locale(langval);
         Locale.setDefault(locale);
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
         recreate();
+
+        //startActivity(new Intent(this,ActivitySplash.class));
+
+/*        Intent i = getBaseContext().getPackageManager().
+                getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+        finish();*/
     }
+
+
 }

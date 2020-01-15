@@ -34,6 +34,7 @@ import java.util.List;
 
 import app.thecity.data.Constant;
 import app.thecity.data.DatabaseHandler;
+import app.thecity.data.SharedPref;
 import app.thecity.model.Category;
 import app.thecity.model.Place;
 import app.thecity.utils.PermissionUtil;
@@ -92,15 +93,28 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        SharedPref sharedPref =new SharedPref(this);
+        String name;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            name = ext_place.name_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            name = ext_place.name_ar;
+        }
+        else{
+            name= ext_place.name;
+        }
+
         mMap = Tools.configActivityMaps(googleMap);
         CameraUpdate location;
         if (isSinglePlace) {
             marker_bg.setColorFilter(getResources().getColor(R.color.marker_secondary));
-            MarkerOptions markerOptions = new MarkerOptions().title(ext_place.getName()).position(ext_place.getPosition());
+            MarkerOptions markerOptions = new MarkerOptions().title(name).position(ext_place.getPosition());
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(Tools.createBitmapFromView(ActivityMaps.this, marker_view)));
             mMap.addMarker(markerOptions);
             location = CameraUpdateFactory.newLatLngZoom(ext_place.getPosition(), 12);
-            actionBar.setTitle(ext_place.getName());
+            actionBar.setTitle(name);
         } else {
             location = CameraUpdateFactory.newLatLngZoom(new LatLng(Constant.city_lat, Constant.city_lng), 9);
             mClusterManager = new ClusterManager<>(this, mMap);
@@ -180,13 +194,26 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
 
         @Override
         protected void onBeforeClusterItemRendered(Place item, MarkerOptions markerOptions) {
+
+            SharedPref sharedPref =new SharedPref(getApplicationContext());
+            String name;
+            if("fr".equals(sharedPref.getLanguauge())) {
+                name = item.name_fr;
+            }
+            else if("ar".equals(sharedPref.getLanguauge())) {
+                name = item.name_ar;
+            }
+            else{
+                name= item.name;
+            }
+
             if (cat_id == -1) { // all place
                 icon.setImageResource(R.drawable.round_shape);
             } else {
                 icon.setImageResource(cur_category.icon);
             }
             marker_bg.setColorFilter(getResources().getColor(R.color.marker_primary));
-            markerOptions.title(item.getName());
+            markerOptions.title(name);
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(Tools.createBitmapFromView(ActivityMaps.this, marker_view)));
             if (ext_place != null && ext_place.place_id == item.place_id) {
                 markerOptions.visible(false);

@@ -329,12 +329,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private ContentValues getPlaceValue(Place model){
         ContentValues values = new ContentValues();
         values.put(KEY_PLACE_ID, model.place_id);
-        values.put(KEY_NAME, model.getName());
+        values.put(KEY_NAME, model.name);
         values.put(KEY_IMAGE, model.image);
-        values.put(KEY_ADDRESS, model.getAddress());
+        values.put(KEY_ADDRESS, model.address);
         values.put(KEY_PHONE, model.phone);
         values.put(KEY_WEBSITE, model.website);
-        values.put(KEY_DESCRIPTION, model.getDescription());
+        values.put(KEY_DESCRIPTION, model.description);
         values.put(KEY_LNG, model.lng);
         values.put(KEY_LAT, model.lat);
         values.put(KEY_DISTANCE, model.distance);

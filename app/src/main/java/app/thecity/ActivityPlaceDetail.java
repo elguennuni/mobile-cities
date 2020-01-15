@@ -111,9 +111,24 @@ public class ActivityPlaceDetail extends AppCompatActivity {
         Tools.displayImage(this, (ImageView) findViewById(R.id.image), Constant.getURLimgPlace(place.image));
         distance = place.distance;
 
+        /* Get Languauge */
+        SharedPref sharedPref =new SharedPref(this);
+       final String name;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            name = place.name_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            name = place.name_ar;
+        }
+        else{
+            name= place.name;
+        }
+        /* *** End Language **********/
         fabToggle();
-        setupToolbar(place.getName());
+        setupToolbar(name);
         initMap();
+
+
 
         // handle when favorite button clicked
         fab.setOnClickListener(new View.OnClickListener() {
@@ -121,14 +136,14 @@ public class ActivityPlaceDetail extends AppCompatActivity {
             public void onClick(View view) {
                 if (db.isFavoritesExist(place.place_id)) {
                     db.deleteFavorites(place.place_id);
-                    Snackbar.make(parent_view, place.getName() + " " + getString(R.string.remove_favorite), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(parent_view, name + " " + getString(R.string.remove_favorite), Snackbar.LENGTH_SHORT).show();
                     // analytics tracking
-                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "REMOVE", place.getName());
+                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "REMOVE", name);
                 } else {
                     db.addFavorites(place.place_id);
-                    Snackbar.make(parent_view, place.getName() + " " + getString(R.string.add_favorite), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(parent_view, name + " " + getString(R.string.add_favorite), Snackbar.LENGTH_SHORT).show();
                     // analytics tracking
-                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "ADD", place.getName());
+                    ThisApplication.getInstance().trackEvent(Constant.Event.FAVORITES.name(), "ADD", name);
                 }
                 fabToggle();
             }
@@ -138,18 +153,36 @@ public class ActivityPlaceDetail extends AppCompatActivity {
         Tools.systemBarLolipop(this);
 
         // analytics tracking
-        ThisApplication.getInstance().trackScreenView("View place : " + place.getName());
+        ThisApplication.getInstance().trackScreenView("View place : " + name);
     }
 
 
     private void displayData(Place p) {
-        ((TextView) findViewById(R.id.address)).setText(p.getAddress());
+
+        /* Get Languauge */
+        SharedPref sharedPref =new SharedPref(this);
+        final String adresse,description_ln;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            adresse = p.address_fr;
+            description_ln=p.description_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            adresse = p.address_ar;
+            description_ln=p.description_ar;
+        }
+        else{
+            adresse= p.address;
+            description_ln=p.description;
+        }
+        /* *** End Language **********/
+
+        ((TextView) findViewById(R.id.address)).setText(adresse);
         ((TextView) findViewById(R.id.phone)).setText(p.phone.equals("-") || p.phone.trim().equals("") ? getString(R.string.no_phone_number) : p.phone);
         ((TextView) findViewById(R.id.website)).setText(p.website.equals("-") || p.website.trim().equals("") ? getString(R.string.no_website) : p.website);
 
         description = (WebView) findViewById(R.id.description);
         String html_data = "<style>img{max-width:100%;height:auto;} iframe{width:100%;}</style> ";
-        html_data += p.getDescription();
+        html_data += description_ln;
         description.getSettings().setBuiltInZoomControls(true);
         description.setBackgroundColor(Color.TRANSPARENT);
         description.setWebChromeClient(new WebChromeClient());

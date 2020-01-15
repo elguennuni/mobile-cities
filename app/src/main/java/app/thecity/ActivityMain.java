@@ -380,4 +380,8 @@ public class ActivityMain extends AppCompatActivity {
         int moveY = hide ? (2 * f_ab.getHeight()) : 0;
         f_ab.animate().translationY(moveY).setStartDelay(100).setDuration(400).start();
     }
+
+
+
+
 }

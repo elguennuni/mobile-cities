@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
