@@ -51,6 +51,7 @@ public class ActivityMain extends AppCompatActivity {
     private DatabaseHandler db;
     private SharedPref sharedPref;
     private RelativeLayout nav_header_lyt;
+    private String currentLanguage;
 
     static ActivityMain activityMain;
 
@@ -63,6 +64,8 @@ public class ActivityMain extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         db = new DatabaseHandler(this);
         sharedPref = new SharedPref(this);
+
+        currentLanguage=sharedPref.getLanguauge();
 
         initBannerAds();
         initInterstitialAds();
@@ -299,6 +302,11 @@ public class ActivityMain extends AppCompatActivity {
         if (nav_header_lyt != null) {
             nav_header_lyt.setBackgroundColor(Tools.colorBrighter(sharedPref.getThemeColorInt()));
         }
+
+        String newtLanguage=sharedPref.getLanguauge();
+
+        if(!newtLanguage.equals(currentLanguage))
+            recreate();
         super.onResume();
     }
 

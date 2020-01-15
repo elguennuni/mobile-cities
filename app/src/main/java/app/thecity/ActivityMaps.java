@@ -94,21 +94,23 @@ public class ActivityMaps extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        SharedPref sharedPref =new SharedPref(this);
-        String name;
-        if("fr".equals(sharedPref.getLanguauge())) {
-            name = ext_place.name_fr;
-        }
-        else if("ar".equals(sharedPref.getLanguauge())) {
-            name = ext_place.name_ar;
-        }
-        else{
-            name= ext_place.name;
-        }
-
         mMap = Tools.configActivityMaps(googleMap);
         CameraUpdate location;
         if (isSinglePlace) {
+
+            SharedPref sharedPref =new SharedPref(this);
+            String name;
+            if("fr".equals(sharedPref.getLanguauge())) {
+                name = ext_place.name_fr;
+            }
+            else if("ar".equals(sharedPref.getLanguauge())) {
+                name = ext_place.name_ar;
+            }
+            else{
+                name= ext_place.name;
+            }
+
+
             marker_bg.setColorFilter(getResources().getColor(R.color.marker_secondary));
             MarkerOptions markerOptions = new MarkerOptions().title(name).position(ext_place.getPosition());
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(Tools.createBitmapFromView(ActivityMaps.this, marker_view)));

@@ -421,7 +421,7 @@ public class ActivitySetting extends PreferenceActivity {
        //  RadioButton radioButton;;
 
         dialogBuilder.setTitle(getResources().getString(R.string.pref_title_language));//;
-        dialogBuilder.setMessage(getResources().getString(R.string.lang_dialog_message));//;
+        //dialogBuilder.setMessage(getResources().getString(R.string.lang_dialog_message));//;
         dialogBuilder.setPositiveButton(getResources().getString(R.string.change_lang_dialog_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 int selectedId  = radioGroupe.getCheckedRadioButtonId();

@@ -10,7 +10,7 @@ public class AppConfig {
     public static final boolean ADS_NEWS_DETAILS_BANNER = true;
 
     // if you not use ads you can set this to false
-    public static final boolean ENABLE_GDPR = false;
+    public static final boolean ENABLE_GDPR = true;
 
     // this flag if you want to hide menu news info
     public static final boolean ENABLE_NEWS_INFO = false;
