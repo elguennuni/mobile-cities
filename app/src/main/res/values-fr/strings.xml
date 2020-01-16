@@ -3,7 +3,7 @@
 
     <string name="city_name">Casablanca</string>
     <string name="city_address">Centre-ouest du Maroc</string>
-    <string name="about_text">Applications pour trouver les meilleurs endroits à visiter</string>
+    <string name="about_text">Applications pour trouver les meilleurs endroits à visiter à Casablanca</string>
 
     <!--=== Nav Drawer Menu Items ============================================================== -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -52,7 +52,7 @@
     <!--=== activity Setting =================================================================== -->
     <string name="copyright">Copyright © 2020 MobiGo. \nTous droits réservés</string>
     <string name="pref_category_notif">Notifications</string>
-    <string name="pref_category_display">Display</string>
+    <string name="pref_category_display">العرض</string>
     <string name="pref_category_other">Others</string>
 
     <string name="pref_title_notif">Push Notifications</string>
@@ -114,7 +114,7 @@
     <string name="FAILED">ÉCHOUÉ</string>
     <string name="image_of">%1$d de %2$d</string>
     <string name="pref_title_language">Langue de l\'application</string>
-    <string name="lang_dialog_message" > Il faut impérativement redémarrer l\'application pour que la modification  prenne effet </string>
+    <!--<string name="lang_dialog_message" > Il faut impérativement redémarrer l\'application pour que la modification  prenne effet </string>-->
     <string name="change_lang_dialog_button">Changer</string>
     <string name="cancel_lang_dialog_button">Annuler</string>
 

@@ -29,7 +29,7 @@ public class AppConfig {
 
 
     // when user enable gps, places will sort by distance
-    public static final boolean SORT_BY_DISTANCE = false;
+    public static final boolean SORT_BY_DISTANCE = true;
 
     // distance metric, fill with KILOMETER or MILE only
     public static final String DISTANCE_METRIC_CODE = "KILOMETER";

@@ -46,12 +46,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_category_other">
-        <Preference
+
+<!--        <Preference
             android:summary="@string/developer_name"
-            android:title="@string/pref_title_dev_name" />
-        <Preference
+            android:title="@string/pref_title_dev_name" />-->
+<!--        <Preference
             android:summary="@string/copyright"
-            android:title="@string/pref_title_copyright" />
+            android:title="@string/pref_title_copyright" />-->
         <Preference
             android:key="@string/pref_title_term"
             android:title="@string/pref_title_term" />

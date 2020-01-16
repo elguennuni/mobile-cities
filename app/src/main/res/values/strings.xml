@@ -3,7 +3,7 @@
 
     <string name="city_name">Casablanca</string>
     <string name="city_address">"Central-western part of Morocco "</string>
-    <string name="about_text">Applications to find the best places to visit</string>
+    <string name="about_text">Applications to find the best places to visit in Casablanca</string>
 
     <!-- Replace with your more apps URL -->
     <string name="more_app_url" translatable="false">http://portfolio.dream-space.web.id/</string>
@@ -161,7 +161,7 @@
     </string-array>
     <string name="pref_key_language" translatable="false">key_language</string>
     <string name="pref_title_language" >App Language</string>
-    <string name="lang_dialog_message" >You must restart the application for the change to take effect</string>
+    <!--<string name="lang_dialog_message" >You must restart the application for the change to take effect</string>-->
     <string name="change_lang_dialog_button">Change</string>
     <string name="cancel_lang_dialog_button">Cancel</string>
 

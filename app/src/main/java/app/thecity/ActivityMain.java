@@ -75,7 +75,7 @@ public class ActivityMain extends AppCompatActivity {
         cat = getResources().getIntArray(R.array.id_category);
 
         // first drawer view
-        onItemSelected(R.id.nav_all, getString(R.string.title_nav_all));
+        onItemSelected(R.id.nav_all, getString(R.string.title_nav_all),true);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +115,7 @@ public class ActivityMain extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                return onItemSelected(item.getItemId(), item.getTitle().toString());
+                return onItemSelected(item.getItemId(), item.getTitle().toString(),false);
             }
         });
         if (!AppConfig.ENABLE_NEWS_INFO) navigationView.getMenu().removeItem(R.id.nav_news);
@@ -174,7 +174,7 @@ public class ActivityMain extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean onItemSelected(int id, String title) {
+    public boolean onItemSelected(int id, String title, boolean isFirst) {
         // Handle navigation view item clicks here.
         Fragment fragment = null;
         Bundle bundle = new Bundle();
@@ -266,8 +266,12 @@ public class ActivityMain extends AppCompatActivity {
             fragmentTransaction.replace(R.id.frame_content, fragment);
             fragmentTransaction.commit();
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if(isFirst==false)
+            drawer.closeDrawer(GravityCompat.START);
+        else
+            drawer.openDrawer(GravityCompat.START);
         return true;
     }
 

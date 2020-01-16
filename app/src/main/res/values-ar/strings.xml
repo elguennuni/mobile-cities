@@ -28,9 +28,7 @@
 
     <!--=== activity Maps ====================================================================== -->
     <string name="no_item_at">لا مقال في</string>
-    <string name="dialog_content_gps">
-        GPS is disabled in your device. Would you like to enable it?
-    </string>
+    <string name="dialog_content_gps">" غير مشغل GPS في جهازك. هل ترغب في تفعيله؟"</string>
     <string name="activity_title_maps">@string/title_nav_all</string>
 
     <!--=== activity PlaceDetails ============================================================== -->
@@ -117,7 +115,7 @@
     <string name="FAILED">فشل</string>
     <string name="image_of">%1$d of %2$d</string>
     <string name="pref_title_language">لغة التطبيق</string>
-    <string name="lang_dialog_message" >يجب إعادة تشغيل التطبيق حتى يتم تغيير اللغة</string>
+   <!-- <string name="lang_dialog_message" >يجب إعادة تشغيل التطبيق حتى يتم تغيير اللغة</string>-->
     <string name="change_lang_dialog_button">تغير</string>
     <string name="cancel_lang_dialog_button">رجوع</string>
 
