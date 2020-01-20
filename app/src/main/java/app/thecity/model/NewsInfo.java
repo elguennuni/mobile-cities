@@ -11,4 +11,12 @@ public class NewsInfo implements Serializable{
     public String image;
     public long last_update;
 
+    public String title_ar;
+    public String brief_content_ar;
+    public String full_content_ar;
+
+    public String title_fr;
+    public String brief_content_fr;
+    public String full_content_fr;
+
 }

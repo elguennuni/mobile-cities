@@ -85,6 +85,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_NEWS_FULL_CONTENT   = "full_content";
     private static final String KEY_NEWS_IMAGE          = "image";
     private static final String KEY_NEWS_LAST_UPDATE    = "last_update";
+    private static final String KEY_NEWS_TITLE_FR          = "title_fr";
+    private static final String KEY_NEWS_BRIEF_CONTENT_FR  = "brief_content_fr";
+    private static final String KEY_NEWS_FULL_CONTENT_FR   = "full_content_fr";
+    private static final String KEY_NEWS_TITLE_AR         = "title_ar";
+    private static final String KEY_NEWS_BRIEF_CONTENT_AR  = "brief_content_ar";
+    private static final String KEY_NEWS_FULL_CONTENT_AR   = "full_content_ar";
 
 	// Table Relational Columns names TABLE_PLACE_CATEGORY
     private static final String KEY_RELATION_PLACE_ID = KEY_PLACE_ID;
@@ -199,7 +205,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_NEWS_BRIEF_CONTENT+ " TEXT, "
                 + KEY_NEWS_FULL_CONTENT+ " TEXT, "
                 + KEY_NEWS_IMAGE+ " TEXT, "
+
+                + KEY_NEWS_TITLE_FR+ " TEXT, "
+                + KEY_NEWS_BRIEF_CONTENT_FR+ " TEXT, "
+                + KEY_NEWS_FULL_CONTENT_FR+ " TEXT, "
+
+                + KEY_NEWS_TITLE_AR+ " TEXT, "
+                + KEY_NEWS_BRIEF_CONTENT_AR+ " TEXT, "
+                + KEY_NEWS_FULL_CONTENT_AR+ " TEXT, "
+
                 + KEY_NEWS_LAST_UPDATE+ " NUMERIC "
+
                 + ")";
         db.execSQL(CREATE_TABLE);
     }
@@ -359,6 +375,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_NEWS_FULL_CONTENT, model.full_content);
         values.put(KEY_NEWS_IMAGE, model.image);
         values.put(KEY_LAST_UPDATE, model.last_update);
+
+        values.put(KEY_NEWS_TITLE_FR, model.title_fr);
+        values.put(KEY_NEWS_BRIEF_CONTENT_FR, model.brief_content_fr);
+        values.put(KEY_NEWS_FULL_CONTENT_FR, model.full_content_fr);
+
+
+        values.put(KEY_NEWS_TITLE_AR, model.title_ar);
+        values.put(KEY_NEWS_BRIEF_CONTENT_AR, model.brief_content_ar);
+        values.put(KEY_NEWS_FULL_CONTENT_AR, model.full_content_ar);
+
         return values;
     }
 
@@ -370,8 +396,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cur = db.rawQuery("SELECT p.* FROM "+TABLE_PLACE+" p ORDER BY " + KEY_LAST_UPDATE + " DESC", null);
         } else {
             keyword = keyword.toLowerCase();
-            cur = db.rawQuery("SELECT * FROM " + TABLE_PLACE + " WHERE LOWER(" + KEY_NAME + ") LIKE ? OR LOWER("+ KEY_ADDRESS + ") LIKE ? OR LOWER("+ KEY_DESCRIPTION + ") LIKE ? ",
-                  new String[]{"%" + keyword + "%", "%" + keyword + "%", "%" + keyword + "%"});
+            cur = db.rawQuery("SELECT * FROM " + TABLE_PLACE + " WHERE " +
+                            "LOWER(" + KEY_NAME + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_ADDRESS + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_DESCRIPTION + ") LIKE ? " +
+                            "OR " +
+                            "LOWER(" + KEY_NAME_AR + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_ADDRESS_AR + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_DESCRIPTION_AR + ") LIKE ? "+
+                            "OR " +
+                            "LOWER(" + KEY_NAME_FR + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_ADDRESS_FR + ") LIKE ? " +
+                            "OR " +
+                            "LOWER("+ KEY_DESCRIPTION_FR + ") LIKE ? "
+
+                    ,new String[]{"%" + keyword + "%", "%" + keyword + "%", "%" + keyword + "%",
+                            "%" + keyword + "%", "%" + keyword + "%", "%" + keyword + "%",
+                            "%" + keyword + "%", "%" + keyword + "%", "%" + keyword + "%"
+                    });
         }
         locList = getListPlaceByCursor(cur);
         return locList;
@@ -488,6 +535,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         n.full_content  = cur.getString(cur.getColumnIndex(KEY_NEWS_FULL_CONTENT));
         n.image         = cur.getString(cur.getColumnIndex(KEY_NEWS_IMAGE));
         n.last_update   = cur.getLong(cur.getColumnIndex(KEY_NEWS_LAST_UPDATE));
+
+        n.title_ar         = cur.getString(cur.getColumnIndex(KEY_NEWS_TITLE_AR));
+        n.brief_content_ar = cur.getString(cur.getColumnIndex(KEY_NEWS_BRIEF_CONTENT_AR));
+        n.full_content_ar  = cur.getString(cur.getColumnIndex(KEY_NEWS_FULL_CONTENT_AR));
+
+        n.title_fr         = cur.getString(cur.getColumnIndex(KEY_NEWS_TITLE_FR));
+        n.brief_content_fr = cur.getString(cur.getColumnIndex(KEY_NEWS_BRIEF_CONTENT_FR));
+        n.full_content_fr  = cur.getString(cur.getColumnIndex(KEY_NEWS_FULL_CONTENT_FR));
+
         return n;
     }
 

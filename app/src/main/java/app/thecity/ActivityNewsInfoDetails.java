@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import app.thecity.data.AppConfig;
 import app.thecity.data.Constant;
 import app.thecity.data.GDPR;
+import app.thecity.data.SharedPref;
 import app.thecity.data.ThisApplication;
 import app.thecity.model.NewsInfo;
 import app.thecity.utils.Tools;
@@ -109,11 +110,27 @@ public class ActivityNewsInfoDetails extends AppCompatActivity {
     }
 
     private void displayData() {
-        ((TextView) findViewById(R.id.title)).setText(Html.fromHtml(newsInfo.title));
+
+        SharedPref sharedPref =new SharedPref(this);
+        String title,full_content;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            title = newsInfo.title_fr;
+            full_content=newsInfo.full_content_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            title = newsInfo.title_ar;
+            full_content=newsInfo.full_content_ar;
+        }
+        else{
+            title= newsInfo.title;
+            full_content=newsInfo.full_content;
+        }
+
+        ((TextView) findViewById(R.id.title)).setText(Html.fromHtml(title));
 
         webview = (WebView) findViewById(R.id.content);
         String html_data = "<style>img{max-width:100%;height:auto;} iframe{width:100%;}</style> ";
-        html_data += newsInfo.full_content;
+        html_data += full_content;
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings();
         webview.getSettings().setBuiltInZoomControls(true);

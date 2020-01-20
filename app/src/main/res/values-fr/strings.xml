@@ -52,7 +52,6 @@
     <!--=== activity Setting =================================================================== -->
     <string name="copyright">Copyright © 2020 MobiGo. \nTous droits réservés</string>
     <string name="pref_category_notif">Notifications</string>
-    <string name="pref_category_display">العرض</string>
     <string name="pref_category_other">Others</string>
 
     <string name="pref_title_notif">Push Notifications</string>
@@ -117,6 +116,7 @@
     <!--<string name="lang_dialog_message" > Il faut impérativement redémarrer l\'application pour que la modification  prenne effet </string>-->
     <string name="change_lang_dialog_button">Changer</string>
     <string name="cancel_lang_dialog_button">Annuler</string>
+    <string name="pref_category_display">Display</string>
 
 
 </resources>

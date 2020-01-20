@@ -70,16 +70,10 @@ public class ThisApplication extends Application {
         Configuration config = getBaseContext().getResources().getConfiguration();
         Locale locale = new Locale(sharedPref.getLanguauge());
         Locale.setDefault(locale);
-        //config.locale = locale;
-        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        Resources res = getBaseContext().getResources();
-        if (Build.VERSION.SDK_INT >= 17) {
-            config.setLocale(locale);
-            getBaseContext().createConfigurationContext(config);
-        } else {
-            config.locale = locale;
-            res.updateConfiguration(config, res.getDisplayMetrics());
-        }
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+
     }
 
     public static synchronized ThisApplication getInstance() {

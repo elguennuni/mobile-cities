@@ -16,6 +16,7 @@ import java.util.List;
 
 import app.thecity.R;
 import app.thecity.data.Constant;
+import app.thecity.data.SharedPref;
 import app.thecity.model.NewsInfo;
 import app.thecity.utils.Tools;
 
@@ -92,8 +93,24 @@ public class AdapterNewsInfo extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof OriginalViewHolder) {
             final NewsInfo o = items.get(position);
             OriginalViewHolder vItem = (OriginalViewHolder) holder;
-            vItem.title.setText(o.title);
-            vItem.brief_content.setText(o.brief_content);
+
+            SharedPref sharedPref =new SharedPref(ctx);
+            String title,brief_content;
+            if("fr".equals(sharedPref.getLanguauge())) {
+                title = o.title_fr;
+                brief_content=o.brief_content_fr;
+            }
+            else if("ar".equals(sharedPref.getLanguauge())) {
+                title = o.title_ar;
+                brief_content=o.brief_content_ar;
+            }
+            else{
+                title= o.title;
+                brief_content=o.brief_content;
+            }
+
+            vItem.title.setText(title);
+            vItem.brief_content.setText(brief_content);
             Tools.displayImageThumb(ctx, vItem.image, Constant.getURLimgNews(o.image), 0.5f);
             vItem.lyt_parent.setOnClickListener(new View.OnClickListener() {
                 @Override

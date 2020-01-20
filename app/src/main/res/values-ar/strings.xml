@@ -53,7 +53,7 @@
     <!--=== activity Setting =================================================================== -->
     <string name="copyright">حقوق الطبع والنشر © MobiGo. \nجميع الحقوق محفوظة </string>
     <string name="pref_category_notif">إشعارات</string>
-    <string name="pref_category_display">Display</string>
+    <string name="pref_category_display">العرض</string>
     <string name="pref_category_other">Others</string>
 
     <string name="pref_title_notif">دفع الإشعارات</string>

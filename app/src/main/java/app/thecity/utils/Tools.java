@@ -267,8 +267,19 @@ public class Tools {
 
     public static void methodShareNews(Activity act, NewsInfo n) {
 
+        SharedPref sharedPref =new SharedPref(act);
+        String title;
+        if("fr".equals(sharedPref.getLanguauge())) {
+            title = n.title_fr;
+        }
+        else if("ar".equals(sharedPref.getLanguauge())) {
+            title = n.title_ar;
+        }
+        else{
+            title= n.title;
+        }
         // string to share
-        String shareBody = n.title + "\n\n" + getPlayStoreUrl(act);
+        String shareBody = title + "\n\n" + getPlayStoreUrl(act);
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");

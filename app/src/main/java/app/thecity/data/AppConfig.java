@@ -13,7 +13,7 @@ public class AppConfig {
     public static final boolean ENABLE_GDPR = true;
 
     // this flag if you want to hide menu news info
-    public static final boolean ENABLE_NEWS_INFO = false;
+    public static final boolean ENABLE_NEWS_INFO = true;
 
     // flag for save image offline
     public static final boolean IMAGE_CACHE = true;
