@@ -10,9 +10,13 @@ import com.google.ads.consent.ConsentInfoUpdateListener;
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
 import com.google.ads.consent.DebugGeography;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 import app.thecity.BuildConfig;
 import app.thecity.R;
@@ -32,8 +36,11 @@ public class GDPR {
         ConsentInformation consentInformation = ConsentInformation.getInstance(act);
         if (BuildConfig.DEBUG) {
             // How to get device ID : https://goo.gl/2ompNn, https://goo.gl/jrCqfY
-            consentInformation.addTestDevice("6E03755720167250AEBF7573B4E86B62");
+            consentInformation.addTestDevice("E797C9B8B87E7949309147D810EA6F28");
+            consentInformation.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
             consentInformation.setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
+
+            Log.e("isTestDevice",  "Sohaib "+consentInformation.isTestDevice()+"");
         }
         consentInformation.requestConsentInfoUpdate(new String[]{act.getString(R.string.publisher_id)}, new ConsentInfoUpdateListener() {
             @Override
